@@ -1,76 +1,115 @@
-const lines = [
-  "Initializing Friendship.EXE...",
-  "Connecting to Galaxy Network...",
-  "Scanning User...",
-  "Searching Friendship Database...",
-  "Identity Found: NIDA ✔"
+const terminal = document.getElementById("terminalText");
+const progressBar = document.getElementById("progressBar");
+
+const bootLines = [
+"> Initializing FRIENDSHIP.EXE...",
+"> Connecting to Friendship Galaxy...",
+"> Loading Secure Database...",
+"> Searching for User...",
+"> Match Found...",
+"> Identity Confirmed: NIDA",
+"> Access Level: LEGENDARY FRIEND",
+"> Preparing AI Interface..."
 ];
 
-const ids = ["line1", "line2", "line3", "line4", "line5"];
+let line = 0;
 
-let current = 0;
-
-function typeLine(text, elementId, callback) {
-  const el = document.getElementById(elementId);
-  let i = 0;
-
-  const timer = setInterval(() => {
-    el.textContent += text.charAt(i);
-    i++;
-
-    if (i >= text.length) {
-      clearInterval(timer);
-      if (callback) callback();
-    }
-  }, 40);
-}
-
-function nextLine() {
-  if (current < lines.length) {
-    typeLine(lines[current], ids[current], () => {
-      current++;
-      nextLine();
-    });
-  } else {
-    startLoading();
-  }
-}
-
-function startLoading() {
-  let width = 0;
-  const progress = document.getElementById("progress");
-
-  const timer = setInterval(() => {
-    width++;
-
-    progress.style.width = width + "%";
-
-    if (width === 45) {
-      glitch();
+function typeBoot() {
+    if (line >= bootLines.length) {
+        loadProgress();
+        return;
     }
 
-    if (width >= 100) {
-      clearInterval(timer);
+    let text = bootLines[line];
+    let i = 0;
 
-      setTimeout(() => {
-        document.getElementById("bootScreen").style.display = "none";
-        document.getElementById("aiScreen").style.display = "flex";
-      }, 800);
-    }
-  }, 35);
+    const typing = setInterval(() => {
+        terminal.innerHTML += text.charAt(i);
+        i++;
+
+        if (i >= text.length) {
+            clearInterval(typing);
+            terminal.innerHTML += "<br>";
+            line++;
+            setTimeout(typeBoot, 350);
+        }
+    }, 35);
 }
 
-function glitch() {
-  document.body.style.filter = "brightness(2)";
-  setTimeout(() => {
-    document.body.style.filter = "none";
-  }, 120);
+function loadProgress() {
+    let width = 0;
 
-  navigator.vibrate?.(100);
+    const loader = setInterval(() => {
+
+        width++;
+
+        progressBar.style.width = width + "%";
+
+        if(width==35 || width==62 || width==89){
+            document.body.style.filter="brightness(2)";
+            setTimeout(()=>{
+                document.body.style.filter="none";
+            },120);
+        }
+
+        if(width>=100){
+            clearInterval(loader);
+
+            setTimeout(showIntro,800);
+        }
+
+    },30);
 }
 
-document.getElementById("startBtn").addEventListener("click", () => {
-  alert("🚀 Mission Control will be added in Part 2!");
-});
+function typeMessage(text, element, speed){
 
-nextLine();
+    let i=0;
+
+    element.innerHTML="";
+
+    const timer=setInterval(()=>{
+
+        element.innerHTML+=text.charAt(i);
+
+        i++;
+
+        if(i>=text.length){
+            clearInterval(timer);
+        }
+
+    },speed);
+
+}
+
+function showIntro(){
+
+    document.getElementById("bootScene").classList.remove("active");
+    document.getElementById("introScene").classList.add("active");
+
+    const message=`Hello Captain Nida...
+
+Welcome to FRIENDSHIP.EXE.
+
+Thousands of friendships exist...
+
+But only a few are selected for this classified mission.
+
+Today...
+
+You have been chosen.
+
+Complete every mission to unlock the Secret Friendship File created by Agent Affan.
+
+Good Luck.`;
+
+    typeMessage(message,document.getElementById("aiMessage"),30);
+
+}
+
+document.getElementById("continueBtn").onclick=function(){
+
+    alert("🚀 Mission Control is coming in Chapter 2!");
+
+}
+
+typeBoot();
