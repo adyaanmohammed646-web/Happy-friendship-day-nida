@@ -8,132 +8,157 @@ body{
 font-family:'Poppins',sans-serif;
 background:#030712;
 overflow:hidden;
+color:#fff;
 height:100vh;
-color:white;
+}
+
+.scene{
+position:absolute;
+inset:0;
+display:none;
+justify-content:center;
+align-items:center;
+padding:25px;
+}
+
+.scene.active{
+display:flex;
 }
 
 #stars{
 position:fixed;
-width:100%;
-height:100%;
+inset:0;
 background:
-radial-gradient(circle,#ffffff 1px,transparent 1px);
-background-size:40px 40px;
-animation:moveStars 60s linear infinite;
-opacity:.35;
-z-index:-1;
+radial-gradient(circle at 20% 30%,#fff 1px,transparent 2px),
+radial-gradient(circle at 70% 70%,#8be9fd 1px,transparent 2px),
+radial-gradient(circle at 80% 20%,#ffffff 1px,transparent 2px),
+radial-gradient(circle at 40% 90%,#a78bfa 1px,transparent 2px);
+background-size:220px 220px;
+animation:starsMove 35s linear infinite;
+opacity:.8;
+z-index:-2;
 }
 
-@keyframes moveStars{
-from{
-transform:translateY(0);
-}
-to{
-transform:translateY(1000px);
-}
-}
-
-#bootScreen,
-#aiScreen{
+#stars::before{
+content:"";
 position:absolute;
-width:100%;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:25px;
-text-align:center;
+inset:0;
+background:
+radial-gradient(circle,#00e5ff22 0%,transparent 70%);
+animation:pulse 6s ease-in-out infinite;
 }
 
-.logo{
-font-size:42px;
-font-family:'Orbitron',sans-serif;
-color:#00e5ff;
-text-shadow:0 0 20px #00e5ff;
-margin-bottom:40px;
-animation:pulse 2s infinite;
+@keyframes starsMove{
+from{transform:translateY(0);}
+to{transform:translateY(220px);}
 }
 
 @keyframes pulse{
 50%{
+transform:scale(1.3);
+opacity:.5;
+}
+}
+
+.logo{
+font-family:'Orbitron',sans-serif;
+font-size:3rem;
+color:#00e5ff;
+letter-spacing:3px;
 text-shadow:
 0 0 10px cyan,
-0 0 25px cyan,
-0 0 50px cyan;
+0 0 30px cyan,
+0 0 60px #7c4dff;
+margin-bottom:40px;
+text-align:center;
+animation:logoGlow 2s infinite;
+}
+
+@keyframes logoGlow{
+50%{
+transform:scale(1.03);
 }
 }
 
 .terminal{
-width:90%;
-max-width:650px;
-background:rgba(0,0,0,.45);
-border:1px solid #00e5ff;
-border-radius:18px;
-padding:20px;
-min-height:200px;
-backdrop-filter:blur(12px);
-box-shadow:0 0 25px rgba(0,229,255,.25);
+width:min(92%,700px);
+background:rgba(255,255,255,.08);
+border:1px solid rgba(0,229,255,.4);
+backdrop-filter:blur(18px);
+border-radius:22px;
+padding:30px;
+box-shadow:
+0 0 30px rgba(0,229,255,.15);
 }
 
-.terminal p{
-margin:10px 0;
-color:#7df9ff;
+#terminalText{
 font-family:monospace;
-font-size:17px;
+font-size:1rem;
+line-height:1.8;
+min-height:220px;
+color:#9efcff;
+white-space:pre-line;
 }
 
-.progressBox{
-width:80%;
-max-width:500px;
+.progress{
+margin-top:25px;
 height:16px;
-border:1px solid cyan;
-margin-top:35px;
-border-radius:50px;
+border-radius:30px;
 overflow:hidden;
+border:1px solid cyan;
 }
 
-#progress{
+#progressBar{
 height:100%;
 width:0%;
-background:linear-gradient(90deg,#00e5ff,#7c4dff);
-border-radius:50px;
+background:linear-gradient(90deg,#00e5ff,#7c4dff,#ff4fd8);
+border-radius:30px;
 }
 
-#aiScreen{
-display:none;
+.glass{
+width:min(92%,760px);
+padding:35px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 40px rgba(0,229,255,.15);
 }
 
-#welcome{
+.glass h1{
 font-family:'Orbitron',sans-serif;
-font-size:34px;
+font-size:2.4rem;
+margin-bottom:15px;
+}
+
+.glass span{
 color:#00e5ff;
 text-shadow:0 0 18px cyan;
-margin-bottom:20px;
 }
 
-#message{
-max-width:700px;
-font-size:18px;
-line-height:1.8;
-color:#e8f7ff;
+#aiMessage{
+font-size:1.1rem;
+line-height:1.9;
+min-height:170px;
+color:#eafcff;
 }
 
-#startBtn{
-margin-top:40px;
+#continueBtn{
+margin-top:25px;
 padding:16px 45px;
-font-size:18px;
 border:none;
-border-radius:50px;
+border-radius:999px;
 background:linear-gradient(90deg,#00e5ff,#7c4dff);
 color:white;
-font-weight:bold;
+font-weight:700;
+font-size:1rem;
 cursor:pointer;
 transition:.3s;
-box-shadow:0 0 25px rgba(0,229,255,.45);
+box-shadow:0 0 25px rgba(0,229,255,.4);
 }
 
-#startBtn:hover{
-transform:scale(1.08);
+#continueBtn:hover{
+transform:scale(1.06);
 box-shadow:0 0 40px cyan;
-  }
+          }
