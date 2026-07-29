@@ -106,9 +106,12 @@ Good Luck.`;
 
 }
 
-document.getElementById("continueBtn").onclick=function(){
+document.getElementById("continueBtn").onclick = function () {
 
-    alert("🚀 Mission Control is coming in Chapter 2!");
+    document.getElementById("introScene").style.display = "none";
+
+    document.getElementById("missionScene").style.display = "flex";
+
 
 }
 
