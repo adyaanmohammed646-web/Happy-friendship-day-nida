@@ -1,67 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRIENDSHIP.EXE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FRIENDSHIP.EXE</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div id="stars"></div>
 
-<div id="bootScreen">
+<section id="bootScene" class="scene active">
 
-<h1 class="logo">FRIENDSHIP.EXE</h1>
+<div class="logo">
+FRIENDSHIP.EXE
+</div>
 
 <div class="terminal">
 
-<p id="line1"></p>
-<p id="line2"></p>
-<p id="line3"></p>
-<p id="line4"></p>
-<p id="line5"></p>
+<div id="terminalText"></div>
 
-</div>
-
-<div class="progressBox">
-<div id="progress"></div>
+<div class="progress">
+<div id="progressBar"></div>
 </div>
 
 </div>
 
+</section>
 
-<div id="aiScreen">
+<section id="introScene" class="scene">
 
-<h2 id="welcome">WELCOME, CAPTAIN NIDA</h2>
+<div class="glass">
 
-<p id="message">
-Hello Captain...
+<h1>
+WELCOME,
+<span>NIDA</span>
+</h1>
 
-Scanning completed successfully.
+<p id="aiMessage"></p>
 
-Identity Confirmed.
-
-Friendship Energy: ∞
-
-Agent Affan has left a classified mission for you.
-
-Complete every mission to unlock the Secret Friendship File.
-
-Good Luck.
-</p>
-
-<button id="startBtn">
+<button id="continueBtn">
 START MISSION
 </button>
 
 </div>
 
+</section>
+
 <script src="script.js"></script>
 
 </body>
-  </html>
+</html>
