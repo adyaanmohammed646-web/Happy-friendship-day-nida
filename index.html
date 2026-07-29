@@ -15,6 +15,7 @@
 
 <div id="stars"></div>
 
+<!-- Boot Scene -->
 <section id="bootScene" class="scene active">
 
 <div class="logo">
@@ -22,7 +23,6 @@ FRIENDSHIP.EXE
 </div>
 
 <div class="terminal">
-
 <div id="terminalText"></div>
 
 <div class="progress">
@@ -33,6 +33,7 @@ FRIENDSHIP.EXE
 
 </section>
 
+<!-- Intro Scene -->
 <section id="introScene" class="scene">
 
 <div class="glass">
@@ -52,7 +53,55 @@ START MISSION
 
 </section>
 
+<!-- Mission Control -->
+<section id="missionScene" class="scene">
+
+<div class="glass missionBox">
+
+<h1>🛰️ MISSION CONTROL</h1>
+
+<p class="status">
+Welcome back, <span>Captain Nida</span>
+</p>
+
+<div class="progressCard">
+
+<h3>Mission Progress</h3>
+
+<div class="progress">
+<div id="missionProgress" style="width:0%"></div>
+</div>
+
+<p>0% Complete</p>
+
+</div>
+
+<div class="missions">
+
+<button class="mission">
+❤️ Mission 1<br>
+Heart Hunter
+</button>
+
+<button class="mission" disabled>
+⭐ Mission 2
+</button>
+
+<button class="mission" disabled>
+🔐 Mission 3
+</button>
+
+<button class="mission" disabled>
+🎁 Final Gift
+</button>
+
+</div>
+
+</div>
+
+</section>
+
 <script src="script.js"></script>
 
 </body>
-</html>
+  </html>
