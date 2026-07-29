@@ -162,3 +162,49 @@ box-shadow:0 0 25px rgba(0,229,255,.4);
 transform:scale(1.06);
 box-shadow:0 0 40px cyan;
           }
+
+.missionBox{
+max-width:850px;
+}
+
+.status{
+margin:20px 0;
+font-size:20px;
+}
+
+.status span{
+color:#00e5ff;
+}
+
+.progressCard{
+margin:30px 0;
+}
+
+.missions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:30px;
+}
+
+.mission{
+padding:20px;
+border:none;
+border-radius:18px;
+background:#111827;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+border:1px solid #00e5ff55;
+}
+
+.mission:hover:not(:disabled){
+transform:scale(1.05);
+box-shadow:0 0 20px cyan;
+}
+
+.mission:disabled{
+opacity:.4;
+cursor:not-allowed;
+          }
