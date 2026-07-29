@@ -1,0 +1,139 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#030712;
+overflow:hidden;
+height:100vh;
+color:white;
+}
+
+#stars{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle,#ffffff 1px,transparent 1px);
+background-size:40px 40px;
+animation:moveStars 60s linear infinite;
+opacity:.35;
+z-index:-1;
+}
+
+@keyframes moveStars{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(1000px);
+}
+}
+
+#bootScreen,
+#aiScreen{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:25px;
+text-align:center;
+}
+
+.logo{
+font-size:42px;
+font-family:'Orbitron',sans-serif;
+color:#00e5ff;
+text-shadow:0 0 20px #00e5ff;
+margin-bottom:40px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+text-shadow:
+0 0 10px cyan,
+0 0 25px cyan,
+0 0 50px cyan;
+}
+}
+
+.terminal{
+width:90%;
+max-width:650px;
+background:rgba(0,0,0,.45);
+border:1px solid #00e5ff;
+border-radius:18px;
+padding:20px;
+min-height:200px;
+backdrop-filter:blur(12px);
+box-shadow:0 0 25px rgba(0,229,255,.25);
+}
+
+.terminal p{
+margin:10px 0;
+color:#7df9ff;
+font-family:monospace;
+font-size:17px;
+}
+
+.progressBox{
+width:80%;
+max-width:500px;
+height:16px;
+border:1px solid cyan;
+margin-top:35px;
+border-radius:50px;
+overflow:hidden;
+}
+
+#progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00e5ff,#7c4dff);
+border-radius:50px;
+}
+
+#aiScreen{
+display:none;
+}
+
+#welcome{
+font-family:'Orbitron',sans-serif;
+font-size:34px;
+color:#00e5ff;
+text-shadow:0 0 18px cyan;
+margin-bottom:20px;
+}
+
+#message{
+max-width:700px;
+font-size:18px;
+line-height:1.8;
+color:#e8f7ff;
+}
+
+#startBtn{
+margin-top:40px;
+padding:16px 45px;
+font-size:18px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#00e5ff,#7c4dff);
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 0 25px rgba(0,229,255,.45);
+}
+
+#startBtn:hover{
+transform:scale(1.08);
+box-shadow:0 0 40px cyan;
+  }
